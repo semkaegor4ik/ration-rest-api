@@ -7,17 +7,21 @@ import com.university.fqw.rationrestapi.entity.Week;
 import com.university.fqw.rationrestapi.service.RecipeBuilderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-@RestController("/ration")
+@RestController
+@RequestMapping("/ration")
 @RequiredArgsConstructor
 public class BasicController {
     private final RecipeBuilderService recipeBuilderService;
 
     @GetMapping()
-    public Map<Week, Map<RecipeType, NormalRecipe>> getRecipes(User user) {
+    public @ResponseBody Map<Week, Map<RecipeType, NormalRecipe>> getRecipes(@RequestBody User user) {
         return recipeBuilderService.getRecipes(user);
     }
 }
