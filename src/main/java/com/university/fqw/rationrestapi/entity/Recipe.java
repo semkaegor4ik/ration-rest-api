@@ -35,6 +35,8 @@ public class Recipe {
 
     private String name;
 
+    private String encodedView;
+
     @Column(columnDefinition = "TEXT")
     private String description;
 

@@ -10,6 +10,8 @@ import java.util.Map;
 public class NormalRecipe {
     private String name;
 
+    private String encodedView;
+
     private String description;
 
     private Map<String, Integer> products;
